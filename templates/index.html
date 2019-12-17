@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/index.css')}}">
+    <title>Sign Language Recognition</title>
+</head>
+<body>
+    
+    <h1>Stream Video on Website</h1>
+
+    <div class="image">
+        <img id =  "demo" src="{{ url_for('video_feed') }}">
+    </div>
+
+    <div class = "result">
+        <h4>The best prediction results </h4>
+        <ul>
+            {% for data_sp in data %}
+            <li>
+                <span>{{ data_sp }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <button onclick="saveImg()"> Start </button>
+    <form action="http://localhost:5000/predict" method = "GET">
+        <button>Predict</button>
+    </form>
+    <script>
+        function saveImg() {
+          document.getElementById("demo").setAttribute('src', "{{ url_for('video_feed_save')}}")
+        }
+       
+    </script>
+
+
+</body>
+</html>

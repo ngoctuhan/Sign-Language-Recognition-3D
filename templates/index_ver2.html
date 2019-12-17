@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Language Recognition</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'css/index_ver2.css')}}">
+    <!-- <link rel="stylesheet" type="text/css" href="F:/Sign Laguage 15 classes/static/css/index_ver2.css"> -->
+</head>
+<body>
+    
+    <h1>Sign Language Recognition Online</h1>
+
+    <div class = "container_main">
+
+    
+        <div class = "stream_space">
+            <img id = "demo" src="{{ url_for('video_feed') }}" alt="Trainning">
+        </div>
+
+        <div class = "result_space"> 
+            <h4>The best prediction results </h4>
+            <ul>
+                    {% for data_sp in data %}
+                    <li>
+                        <span>{{ data_sp }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+        </div>
+
+    </div>
+
+    <div class = "funtion_space">
+
+        <button id = "btn_start" onclick="saveImg()">Start</button>
+        
+        <input type="file" id="upfile" name="avatar" accept="image/png, image/jpeg">
+        <form action="http://localhost:5000/predict" method = "GET">
+            <button id = "btn_predict">Predict</button>
+        </form>  
+        <script>
+            function saveImg() {
+              document.getElementById("demo").setAttribute('src', "{{ url_for('video_feed_save')}}")
+            }
+        </script>
+
+    </div>
+    
+
+</body>
+</html>
