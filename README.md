@@ -9,3 +9,5 @@ Nhận dạng ngôn ngữ kí hiệu bằng phương pháp CNN3D ( base mô hìn
 
 
 + Link model: https://drive.google.com/drive/u/2/folders/14_gpXuZrT9XtnPTk81D1cNr22mTuou6j
+
++ Link demo: https://www.youtube.com/watch?v=DM33agCKVE0
