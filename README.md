@@ -1,4 +1,4 @@
-# SignLanguageRecognition3D
+# Sign-Language-Recognition-3D
 
 A real-time sign language recognition system using 3D Convolutional Neural Networks (CNN3D) based on the Inception V3 architecture.
 
